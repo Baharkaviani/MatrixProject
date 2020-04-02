@@ -1,12 +1,17 @@
 
 /**
- * matrix information of each cell
+ * Information about number of rows, columns and each cell of the Matrix
  * @author Bahar Kaviani
  */
 public class Matrix {
     private int row, column;
     private int[][] cell;
 
+    /**
+     * Constructor of Matrix class creates a matrix with "row" rows and "column" columns
+     * @param row number of Matrix's rows
+     * @param column number of Matrix's columns
+     */
     public Matrix(int row, int column){
         this.row = row;
         this.column = column;

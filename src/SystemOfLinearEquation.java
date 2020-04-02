@@ -1,9 +1,16 @@
 import java.util.Scanner;
 
+/**
+ * Information about a System of linear equation
+ * @author Bahar Kaviani
+ */
 public class SystemOfLinearEquation {
     private Matrix coefficient, constant, augmented;
 
 
+    /**
+     * Constructor of SystemOfLinearEquation creates the coefficient and constant matrices
+     */
     public SystemOfLinearEquation() {
         Scanner scanner = new Scanner(System.in);
 
@@ -35,6 +42,27 @@ public class SystemOfLinearEquation {
         constant.setCell(cell2);
     }
 
+
+    public Matrix getAugmented() {
+        return augmented;
+    }
+
+    /**
+     *
+     */
+    public void setAugmented() {
+        augmented = new Matrix(coefficient.getRow(), (coefficient.getColumn() + 1));
+        int[][] cell = new int[augmented.getRow()][augmented.getColumn()];
+        for (int i = 0; i < augmented.getRow(); i++) {
+            int j;
+            for (j = 0; j < augmented.getColumn() - 1; j++) {
+                cell[i][j] = coefficient.getCell()[i][j];
+            }
+            cell[i][j] = constant.getCell()[i][0];
+        }
+        augmented.setCell(cell);
+    }
+
     public Matrix getCoefficient() {
         return coefficient;
     }
@@ -49,13 +77,5 @@ public class SystemOfLinearEquation {
 
     public void setConstant(Matrix constant) {
         this.constant = constant;
-    }
-
-    public Matrix getAugmented() {
-        return augmented;
-    }
-
-    public void setAugmented(Matrix augmented) {
-        this.augmented = augmented;
     }
 }
