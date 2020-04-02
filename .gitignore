@@ -85,6 +85,8 @@ modules.xml
 .idea/misc.xml
 *.ipr
 
+Image/
+
 # Sonarlint plugin
 .idea/sonarlint
 

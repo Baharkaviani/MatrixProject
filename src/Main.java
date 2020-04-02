@@ -5,17 +5,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Matrix first = new Matrix(3, 5);
         Matrix second = new Matrix(3, 5);
-        int[][] cell = new int[3][5];
+        SystemOfLinearEquation system = new SystemOfLinearEquation();
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
-                cell[i][j] = scanner.nextInt();
-            }
-        }
-
-        first.setCell(cell);
-
-        first.printMatrix();
-        second.printMatrix();
+        System.out.println("coefficient");
+        system.getCoefficient().printMatrix();
+        System.out.println("constant");
+        system.getConstant().printMatrix();
     }
 }
