@@ -79,9 +79,9 @@ public class Matrix {
         for (int i = 0; i < this.row; i++) {
             System.out.print("|");
             for (int j = 0; j < this.column; j++) {
-                System.out.format("%5d", cell[i][j]);
+                System.out.format("%8d", cell[i][j]);
             }
-            System.out.println("    |");
+            System.out.println("       |");
         }
     }
 
@@ -134,8 +134,12 @@ public class Matrix {
         return column;
     }
 
-    public int[][] getCell() {
+    public int[][] getAllCells() {
         return cell;
+    }
+
+    public int getCell(int i, int j){
+        return cell[i][j];
     }
 
 }
