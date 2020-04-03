@@ -58,13 +58,20 @@ public class SystemOfLinearEquation {
                 // check if i_th row in the j_th column has pivot
                 // set the first i_th row with non_zero cell as a first row
                 if(REFmatrix.getCell()[i][j] != 0) {
-                    //change the i_th row with pivotNum_th row
-                    REFmatrix.changeRows(i, pivotNum);
+                    //change the i_th row with pivotNum_th row if they're different rows
+                    if(i != pivotNum) {
+                        REFmatrix.changeRows(i, pivotNum);
+                        System.out.println("---------------------------");
+                        System.out.println("change row" + pivotNum + " with row" + i);
+                        REFmatrix.printMatrix();
+                    }
                     // we find the pivot
                     pivotNum++;
                     break;
                 }
             }
+            // ok! we found the pivot of pivotNum_th row
+            // now we need to change all cells under the new pivot to zero...
         }
     }
 

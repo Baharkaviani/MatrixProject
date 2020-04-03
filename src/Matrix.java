@@ -86,7 +86,7 @@ public class Matrix {
     }
 
     /**
-     * the function gets two number of rows and change them in a matrix
+     * The function gets two number of rows and change them in a matrix
      * @param firstRow number of first row
      * @param secondRow number of second row
      */
@@ -96,6 +96,29 @@ public class Matrix {
             temp[j] = cell[firstRow][j];
             cell[firstRow][j] = cell[secondRow][j];
             cell[secondRow][j] = temp[j];
+        }
+    }
+
+    /**
+     * The function adds factors of two rows to the first row
+     * @param firstRow number of first row
+     * @param secondRow number of second row
+     * @param factor the coefficient of second row
+     */
+    public void addFactorOfSecondRowToFirst(int firstRow, int secondRow, int factor){
+        for (int j = 0; j < column; j++) {
+            cell[firstRow][j] += (cell[secondRow][j] * factor);
+        }
+    }
+
+    /**
+     * The function multiplies each cell of rowNum's row by factor
+     * @param rowNum number of row
+     * @param factor the coefficient
+     */
+    public void factorOfRow(int rowNum, int factor){
+        for (int j = 0; j < column; j++) {
+            cell[rowNum][j] *= factor;
         }
     }
 
