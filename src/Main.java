@@ -14,5 +14,7 @@ public class Main {
         system.setAugmented();
         System.out.println("augmented");
         system.getAugmented().printMatrix();
+
+        system.findREFmatrix();
     }
 }

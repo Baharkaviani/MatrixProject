@@ -85,12 +85,18 @@ public class Matrix {
         }
     }
 
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
+    /**
+     * the function gets two number of rows and change them in a matrix
+     * @param firstRow number of first row
+     * @param secondRow number of second row
+     */
+    public void changeRows(int firstRow, int secondRow){
+        int[] temp = new int[column];
+        for (int j = 0; j < column; j++) {
+            temp[j] = cell[firstRow][j];
+            cell[firstRow][j] = cell[secondRow][j];
+            cell[secondRow][j] = temp[j];
+        }
     }
 
     public void setCell(int[][] cell) {

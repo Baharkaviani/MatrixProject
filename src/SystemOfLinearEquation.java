@@ -5,7 +5,8 @@ import java.util.Scanner;
  * @author Bahar Kaviani
  */
 public class SystemOfLinearEquation {
-    private Matrix coefficient, constant, augmented;
+    private Matrix coefficient, constant, augmented, REFmatrix;
+    private int pivotNum;
 
 
     /**
@@ -42,13 +43,37 @@ public class SystemOfLinearEquation {
         constant.setCell(cell2);
     }
 
+    /**
+     * Create echelon form of augmented matrix with row equivalent operations
+     */
+    public void findREFmatrix(){
+        REFmatrix = new Matrix(augmented.getRow(), augmented.getColumn());
+        REFmatrix.setCell(augmented.getCell());
+
+        pivotNum = 0;
+
+        for (int j = 0; j < augmented.getColumn(); j++) {
+            // find the j_th pivot
+            for (int i = pivotNum; i < augmented.getRow(); i++) {
+                // check if i_th row in the j_th column has pivot
+                // set the first i_th row with non_zero cell as a first row
+                if(REFmatrix.getCell()[i][j] != 0) {
+                    //change the i_th row with pivotNum_th row
+                    REFmatrix.changeRows(i, pivotNum);
+                    // we find the pivot
+                    pivotNum++;
+                    break;
+                }
+            }
+        }
+    }
 
     public Matrix getAugmented() {
         return augmented;
     }
 
     /**
-     *
+     * Make augmented matrix based on coefficient and constant matrices
      */
     public void setAugmented() {
         augmented = new Matrix(coefficient.getRow(), (coefficient.getColumn() + 1));
