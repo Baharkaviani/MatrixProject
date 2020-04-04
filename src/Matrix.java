@@ -122,6 +122,19 @@ public class Matrix {
         }
     }
 
+    /**
+     * The function finds the pivot index of asked row
+     * @param row number of asked row
+     * @return the pivot index. It returns -1 if the row doesn't have pivot, in other words the row cells are all zero.
+     */
+    public int getPivotIndexOfRow(int row){
+        for (int j = 0; j < column; j++) {
+            if(cell[row][j] != 0)
+                return j;
+        }
+        return -1;
+    }
+
     public void setCell(int[][] cell) {
         this.cell = cell;
     }

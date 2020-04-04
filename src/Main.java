@@ -16,5 +16,8 @@ public class Main {
         system.getAugmented().printMatrix();
 
         system.findREFmatrix();
+
+        // the findAnswer function is not ocmplete. It just can understand if the system is inconsistent.
+        system.findAnswer();
     }
 }

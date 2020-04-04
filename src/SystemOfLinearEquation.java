@@ -6,6 +6,7 @@ import java.util.Scanner;
  */
 public class SystemOfLinearEquation {
     private Matrix coefficient, constant, augmented, REFmatrix;
+    private int[] answer;
     private int pivotNum;
 
 
@@ -41,6 +42,31 @@ public class SystemOfLinearEquation {
             }
         }
         constant.setCell(cell2);
+    }
+
+    public void findAnswer(){
+        answer = new int[coefficient.getColumn()];
+
+        // check if system is inconsistent
+        for (int i = REFmatrix.getRow() - 1; i >= 0 ; i--) {
+            if (REFmatrix.getPivotIndexOfRow(i) == REFmatrix.getColumn() - 1) {
+                System.out.println("The system is inconsistent");
+                return;
+            }
+        }
+
+        // check if the system has one answer
+        if(pivotNum == REFmatrix.getRow()){
+            System.out.println("The system is consistent and it has one answer:");
+            for (int i = REFmatrix.getRow() - 1; i >= 0 ; i--) {
+                // k is number of Xk
+                for (int k = coefficient.getColumn() - 1; k >= 0 ; k--) {
+                    answer[k] = 0;
+                    for (int q = REFmatrix.getPivotIndexOfRow(i); q < REFmatrix.getColumn(); q++) {
+                    }
+                }
+            }
+        }
     }
 
     /**
